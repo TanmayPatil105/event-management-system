@@ -1,9 +1,66 @@
-<!doctype html>
-<html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</head>
+<body class="bg-light">
+    <div>
+        <nav class="navbar navbar-light bg-dark justify-content-between text-light">
+            <a class="navbar-brand text-light">Navbar</a>
+            <form class="form-inline">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Admin Login</button>
+            </form>
+        </nav>
+    </div>
+    <div class="col-md-4">
+        <form>
+            <div class="form-group text-light">
+                <label for="exampleInputEmail1">Full Name</label>
+                <input type="first" class="form-control" id="firstname" aria-describedby="fistName" placeholder="Enter First Name">
+                <br/>
+                <input type="last" class="form-control" id="lastname" aria-describedby="LastName" placeholder="Enter Last Name">
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="tel" class="form-control" id="mobileNumber" placeholder="Mobile Number">
+            </div>
+            <br/>
+            <div class="form-group">
+                <select class="form-control">
+                    <option>Select Branch</option>
+                    <option>Civil</option>
+                    <option>Computer</option>
+                    <option>Electrical</option>
+                    <option>E&TC</option>
+                    <option>Instrumentation</option>
+                    <option>Mechanical</option>
+                    <option>Metallurgy</option>
+                    <option>Production</option>
+                </select>
+            </div>
+            <br/>
+            <div class="form-group">
+                <select class="form-control">
+                    <option>Select an event</option>
+                    <option>Technical</option>
+                    <option>Gaming</option>
+                    <option>On Stage</option>
+                    <option>Off Stage</option>
+                    <option>Trivia</option>
+
+                </select>
+            </div>
+            <br/>
+
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+        </form>
+    </div>
+    
+</body>
 </html>
