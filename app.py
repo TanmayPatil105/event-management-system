@@ -40,14 +40,19 @@ def runQuery(query):
     #Couldn't connect to MySQL
 	return None
 
-# runQuery("INSERT INTO events VALUES(10,'OpenSource', 50,1,'cs04.jpg',1);")
-# runQuery("DELETE FROM events WHERE event_title = 'OpenSource';")
-
 @app.route('/')
-def renderLoginPage():
-    return render_template('./index.html')
+def getEvents():
+	res = runQuery("SELECT * FROM event_type")
+	# print(res)
+	if res == []:
+		return '<h4>No Movies Title</h4>'
+	else:
+		return render_template('events.html',events = res)
 
 
+# @app.route('/')
+# def renderLoginPage():
+#     return render_template('./index.html')
 
 
 if __name__ == "__main__":
