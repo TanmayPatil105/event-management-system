@@ -17,6 +17,7 @@
             <tr>
                 <th scope="col">Event ID</th>
                 <th scope="col">Event Type</th>
+                <th scope="col">Total participants</th>
             </tr>
             </thead>
             <tbody>
@@ -24,10 +25,18 @@
                 <tr>
                     <th scope="row">{{event[0]}}</th>
                     <td>{{event[1]}}</td>
+                    <td>{{event[2]}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <div >     
+            
+            <button type="button" class="btn btn-primary btn-lg"style = "margin-left:40%;" >
+            + Add new Event
+            </button>
+        </div>
+    
     </div>
 </body>
 </html>
