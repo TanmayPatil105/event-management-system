@@ -26,20 +26,20 @@
       <div class="col-md-4 px-5">
         <form>
             <div class="form-group text-dark">
-                <label class="h3" for="inlineFormCustomSelect">First Name</label>
+                <label class="h4" for="inlineFormCustomSelect">First Name</label>
                 <input type="first" class="form-control border border-dark" id="firstname" aria-describedby="fistName" placeholder="Enter First Name">
                 <br/>
-                <label class="h3" for="inlineFormCustomSelect">Last Name</label>
+                <label class="h4" for="inlineFormCustomSelect">Last Name</label>
                 <input type="last" class="form-control border border-dark" id="lastname" aria-describedby="LastName" placeholder="Enter Last Name">
             </div>
             <br/>
             <div class="form-group">
-              <label class="h3" for="inlineFormCustomSelect">Mobile Number</label>
+              <label class="h4" for="inlineFormCustomSelect">Mobile Number</label>
                 <input type="tel" class="form-control border border-dark" id="mobileNumber" placeholder="Mobile Number">
             </div>
             <br/>
             <div class="form-group">
-                <label class="h3" for="inlineFormCustomSelect">Branch</label>
+                <label class="h4" for="inlineFormCustomSelect">Branch</label>
                 <select class="custom-select w-100" id="inlineFormCustomSelect">
                     <option selected>Select Branch</option>
                     <option value="1">Civil</option>
@@ -54,14 +54,17 @@
             </div>
             <br/>
             <div class="form-group">
-                <label class="h3" for="inlineFormCustomSelect">Event Type</label>
+                <label class="h4" for="inlineFormCustomSelect">Event Type</label>
                 <select class="custom-select w-100 border border-dark">
                     <option selected>Select Event</option>
-                    <option value="1">Technical</option>
+                    {% for event in events %}
+                    <option value={{event[0]}}>{{event[1]}}</option>
+                    {% endfor %}
+                    <!-- <option value="1">Technical</option>
                     <option value="2">Gaming</option>
                     <option value="3">On Stage</option>
                     <option value="4">Off Stage</option>
-                    <option value="5">Trivia</option>
+                    <option value="5">Trivia</option> -->
                 </select>
             </div>
             <br/>
