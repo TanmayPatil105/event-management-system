@@ -1,29 +1,45 @@
 import mysql.connector,sys
 import datetime
 from mysql.connector import Error
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template,redirect, url_for
 from random import randint
 
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/',methods=['GET', 'POST'])
 def renderLoginPage():
     res = runQuery("SELECT * FROM event_type")
-    # count=runQuery("select count(*) from participants where participants.event_id = res[0][];")
-    if res == []:
-        return '<h4>No Event Types</h4>'
-    else:
-         return render_template('index.html',events = res)
+    if request.method == 'POST':
+        Tcount = runQuery("SELECT COUNT(*) FROM participants ")[0] 
+        count = Tcount[0] + 1
+        Name = request.form['FirstName'] + " " + request.form['LastName']
+        Mobile = request.form['MobileNumber']
+        Branch = request.form['Branch']
+        Event = request.form['Event']
+        # print(Name,Mobile,Branch,Event)
+        runQuery("INSERT INTO participants VALUES({},{},\"{}\",\"xyz@gmail.com\",\"{}\",\"COEP\",\"{}\");".format(count,Event,Name,Mobile,Branch))
+        return redirect('/')
+    return render_template('index.html',events = res)
+    
+
 
 @app.route('/loginfail')
 def renderLoginFail():
     return render_template('loginfail.html')
 
-@app.route('/admin')
+@app.route('/admin', methods=['GET', 'POST'])
 def renderAdmin():
-    return render_template('admin.html')
+    if request.method == 'POST':
+        UN = request.form['username']
+        PS = request.form['password']
+
+        if UN=='Admin' and PS=='password':
+            return redirect('/eventType')
+        else:
+            return render_template('admin.html')
+    return render_template('admin.html')    
 
 @app.route('/eventType')
 def getEvents():
