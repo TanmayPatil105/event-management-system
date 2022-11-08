@@ -20,30 +20,30 @@
         </nav>
     </div>  
     <div style="margin-top: 20px;">
-        <img src="../static/login.png" alt="" style="width:100%">
+        <img src="../static/images/login.png" alt="" style="width:100%">
     </div>
     <div class="row">
       <div class="col-md-4 bg-dark">
         
       </div>
       <div class="col-md-4 px-5 bg-success border border-dark">
-        <form style="margin-top: 30px;margin-bottom:30px ;">
+        <form style="margin-top: 30px;margin-bottom:30px ;" method="post">
             <div class="form-group text-dark">
                 <label class="h4" for="inlineFormCustomSelect">First Name</label>
-                <input type="first" class="form-control border border-dark" id="firstname" aria-describedby="fistName" placeholder="Enter First Name">
+                <input name="FirstName" type="first" class="form-control border border-dark" id="firstname" aria-describedby="fistName" placeholder="Enter First Name">
                 <br/>
                 <label class="h4" for="inlineFormCustomSelect">Last Name</label>
-                <input type="last" class="form-control border border-dark" id="lastname" aria-describedby="LastName" placeholder="Enter Last Name">
+                <input name="LastName" type="last" class="form-control border border-dark" id="lastname" aria-describedby="LastName" placeholder="Enter Last Name">
             </div>
             <br/>
             <div class="form-group">
               <label class="h4" for="inlineFormCustomSelect">Mobile Number</label>
-                <input type="tel" class="form-control border border-dark" id="mobileNumber" placeholder="Mobile Number">
+                <input name="MobileNumber" type="tel" class="form-control border border-dark" id="mobileNumber" placeholder="Mobile Number">
             </div>
             <br/>
             <div class="form-group rounded">
                 <label class="h4" for="inlineFormCustomSelect">Branch</label>
-                <select class="custom-select w-100 border border-dark" id="inlineFormCustomSelect">
+                <select name="Branch" class="custom-select w-100 border border-dark" id="inlineFormCustomSelect">
                     <option selected>Select Branch</option>
                     <option value="1">Civil</option>
                     <option value="2">Computer</option>
@@ -58,7 +58,7 @@
             <br/>
             <div class="form-group rounded">
                 <label class="h4" for="inlineFormCustomSelect">Event Type</label>
-                <select class="custom-select w-100 border border-dark">
+                <select name="Event" class="custom-select w-100 border border-dark">
                     <option selected>Select Event</option>
                     {% for event in events %}
                         <option value={{event[0]}}>{{event[1]}}</option>
@@ -66,12 +66,11 @@
                 </select>
             </div>
             <br/>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>
         </form>
       </div>
       <div class="col-md-4 bg-dark">
       </div>
     </div>
-
 </body>
 </html>
