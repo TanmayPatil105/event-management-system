@@ -32,9 +32,42 @@
         </table>
         <div >     
             
-            <button type="button" class="btn btn-primary btn-lg"style = "margin-left:40%;" >
+            <button id="addbtn"type="button" class="btn btn-primary btn-lg"style = "margin-left:40%;" >
             + Add new Event
             </button>
+            <div id="eventname" style = "display:none;margin-top:10px;">
+                <form method="post">
+                <label class="sr-only mb-3 ">Add new Event </label>
+                <input type="text" name="Newevent"  placeholder="Enter event type ">
+                <br>
+                <label class="sr-only mb-3">Max participants</label>
+                <input name="MAXP" type="number" placeholder="Enter maximum participants">
+                <br>
+                <label class="sr-only mb-3">Enter image link</label>
+                <input name="LNK" type="text" placeholder="Enter image link">
+                <br>
+                <label class="sr-only mb-3">Registration fee</label>
+                <input name="Fee" type="number" placeholder="Enter registrtation fee">
+                <br>
+                <label class="sr-only ">Type id </label>
+                <input name="typeid" type="number" placeholder="Enter type id">
+                <br>
+                <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>
+                <!-- <a class="btn "href="" style="color:white; background-color:green; margin-left:5px; margin-top:90px;font-size:18px;">submit</a> -->
+                </form>
+            </div>
+            <script>
+                const targetDiv = document.getElementById("eventname")
+                const btn=document.getElementById("addbtn")
+                btn.onclick =function() {
+                    if (targetDiv.style.display == "none") {
+                            targetDiv.style.display = "block";
+                    }
+                    else{
+                        targetDiv.style.display = "none";
+                    }
+                };  
+            </script>
         </div>
     
     </div>

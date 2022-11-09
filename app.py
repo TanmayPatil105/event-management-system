@@ -38,17 +38,24 @@ def renderAdmin():
         if UN=='Admin' and PS=='password':
             return redirect('/eventType')
         else:
-            return render_template('admin.html')
+            return render_template('loginfail.html')
     return render_template('admin.html')    
 
-@app.route('/eventType')
+@app.route('/eventType',methods=['GET','POST'])
 def getEvents():
     res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;")
-    # print(res)
+    if request.method == "POST":
+        Name = request.form["Newevent"]
+        fee=request.form["Fee"]
+        participants = request.form["MAXP"]
+        imglink=request.form["LNK"]
+        Type=request.form["typeid"]
+        runQuery("INSERT INTO events(event_title,event_price,participents,img_link,type_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,imglink,Type))
     if res == []:
         return '<h4>No Event Types</h4>'
     else:
         return render_template('events.html',events = res)
+    
 
 def runQuery(query):
     try:
