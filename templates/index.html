@@ -15,19 +15,19 @@
         <nav class="navbar navbar-light bg-dark justify-content-between text-light px-5">
             <a class="navbar-brand text-light">COEP</a>
             <form class="form-inline">
-                <a href="/admin" class="btn btn-outline-success my-2 my-sm-0" type="submit">Admin Login</a>
+                <a href="/admin" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Admin Login</a>
             </form>
         </nav>
     </div>  
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 0px;">
         <img src="../static/images/login.png" alt="" style="width:100%">
     </div>
     <div class="row">
       <div class="col-md-4 bg-dark">
         
       </div>
-      <div class="col-md-4 px-5 bg-success border border-dark">
-        <form style="margin-top: 30px;margin-bottom:30px ;" method="post">
+      <div class="col-md-15 px-5 bg-info border border-dark">
+        <form style="margin-top: 30px; margin-bottom:30px; margin-left: 650px; max-width :550px" method="post">
             <div class="form-group text-dark">
                 <label class="h4" for="inlineFormCustomSelect">First Name</label>
                 <input name="FirstName" type="first" class="form-control border border-dark" id="firstname" aria-describedby="fistName" placeholder="Enter First Name">
@@ -41,9 +41,14 @@
                 <input name="MobileNumber" type="tel" class="form-control border border-dark" id="mobileNumber" placeholder="Mobile Number">
             </div>
             <br/>
+            <div class="form-group">
+                <label class="h4" for="inlineFormCustomSelect">Email-id</label>
+                <input name="Email-id" type="email" class="form-control border border-dark" id="email" placeholder="Email-id">
+            </div>
+            <br/>
             <div class="form-group rounded">
                 <label class="h4" for="inlineFormCustomSelect">Branch</label>
-                <select name="Branch" class="custom-select w-100 border border-dark" id="inlineFormCustomSelect">
+                <select name="Branch" class="form-control w-100 border border-dark" id="inlineFormCustomSelect">
                     <option selected>Select Branch</option>
                     <option value="1">Civil</option>
                     <option value="2">Computer</option>
@@ -58,7 +63,7 @@
             <br/>
             <div class="form-group rounded">
                 <label class="h4" for="inlineFormCustomSelect">Event Type</label>
-                <select name="Event" class="custom-select w-100 border border-dark">
+                <select name="Event" class="form-control w-100 border border-dark">
                     <option selected>Select Event</option>
                     {% for event in events %}
                         <option value={{event[0]}}>{{event[1]}}</option>
