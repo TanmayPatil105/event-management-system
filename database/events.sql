@@ -1,4 +1,5 @@
-
+CREATE DATABASE event_mgmt;
+USE event_mgmt;
 
 
 CREATE TABLE `events` (
