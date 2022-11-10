@@ -48,26 +48,21 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="h4" for="inlineFormCustomSelect">Email-id</label>
-                        <input name="Email-id" type="email" class="form-control border border-dark" id="email" placeholder="Email-id">
+                        <input name="Email" type="email" class="form-control border border-dark" id="email" placeholder="Email-id">
                     </div>
                     <br/>
                     <div class="form-group rounded">
                         <label class="h4" for="inlineFormCustomSelect">Branch</label>
                         <select name="Branch" class="form-control w-100 border border-dark" id="inlineFormCustomSelect">
                             <option selected>Select Branch</option>
-                            <option value="1">Civil</option>
-                            <option value="2">Computer</option>
-                            <option value="3">Electrical</option>
-                            <option value="4">E&TC</option>
-                            <option value="5">Instrumentation</option>
-                            <option value="6">Mechanical</option>
-                            <option value="7">Metallurgy</option>
-                            <option value="8">Production</option>
+                            {% for branch in branchs %}
+                                <option value={{branch[0]}}>{{branch[1]}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <br/>
                     <div class="form-group rounded">
-                        <label class="h4" for="inlineFormCustomSelect">Event Type</label>
+                        <label class="h4" for="inlineFormCustomSelect">Event</label>
                         <select name="Event" class="form-control w-100 border border-dark">
                             <option selected>Select Event</option>
                             {% for event in events %}
