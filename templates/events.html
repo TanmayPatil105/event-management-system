@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <style>body{overflow-x: hidden;}</style>
 </head>
-<body>
+<body style="background-color:#fdfffc;">
     <div style="padding-top: 50px; margin: 30px;">
         <table class="table">
             <thead class="thead-dark bg-dark text-light">
@@ -32,27 +32,31 @@
         </table>
         <div >     
             
-            <button id="addbtn"type="button" class="btn btn-primary btn-lg"style = "margin-left:40%;" >
+            <button id="addbtn"type="button" class="mb-5 btn btn-primary btn-lg"style = "margin-left:40%;" >
             + Add new Event
             </button>
-            <div id="eventname" style = "display:none;margin-top:10px;">
-                <form method="post">
-                <label class="sr-only mb-3 ">Add new Event </label>
-                <input type="text" name="Newevent"  placeholder="Enter event type ">
+            <div style ="background-color:#fdfcdc;left:300px;position:relative;height:600px;width:950px;border-radius:12px;"id="eventname"class="w3-card-4 border border-dark" style = "display:none; margin-top:10px; margin-left:100px; margin-right: 100px;">
+                <div style="border-radius:12px;position:relative;background-color: green;"class="w3-container "><h2 style="font-family:monospace;text-align:center;color:white">Event Addition form</h2></div>
+                <form class="w3-container" method="post">
+
+                <div style="font-size:large;left:270px;position:relative;"><label style="font-size: x-large;font-weight: bold;"class="sr-only mt-5 mb-4 ">Add new Event&emsp;</label>
+                    <input style="border-radius:6px;"class="w3-input" type="text" name="Newevent"  placeholder="Enter event type "></div>
+                
+                <div style="font-size:larger;left:270px;position:relative;"> <label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-3">Max participants&ensp;</label>
+                    <input style="border-radius:6px;"class="w3-input"name="MAXP" type="number" placeholder="Enter maximum participants"></div>
+
                 <br>
-                <label class="sr-only mb-3">Max participants</label>
-                <input name="MAXP" type="number" placeholder="Enter maximum participants">
+                <div style="font-size:larger;font-size:large;left:270px;position:relative;"><label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-4">Enter image link&ensp;</label>
+                    <input  style="border-radius:6px;"class="w3-input"name="LNK" type="text" placeholder="Enter image link"></div>
+
+                <div style="font-size:larger;left:270px;position:relative;"><label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-3">Registration fee&ensp;</label>
+                <input  style="border-radius:6px;"class="w3-input"name="Fee" type="number" placeholder="Enter registrtation fee"></div>
+
                 <br>
-                <label class="sr-only mb-3">Enter image link</label>
-                <input name="LNK" type="text" placeholder="Enter image link">
+                <div style="font-size:larger;left:270px;position:relative;"><label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-3 ">Type id&ensp; </label>
+                    <input  style="border-radius:6px;"class="w3-input"name="typeid" type="number" placeholder="Enter type id"></div>
                 <br>
-                <label class="sr-only mb-3">Registration fee</label>
-                <input name="Fee" type="number" placeholder="Enter registrtation fee">
-                <br>
-                <label class="sr-only ">Type id </label>
-                <input name="typeid" type="number" placeholder="Enter type id">
-                <br>
-                <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>
+                <button style ="font-size:larger;left:450px;position:relative"type="submit" class="mt-4 mb-3 btn btn-primary" onclick="login()">Submit</button>
                 <!-- <a class="btn "href="" style="color:white; background-color:green; margin-left:5px; margin-top:90px;font-size:18px;">submit</a> -->
                 </form>
             </div>
