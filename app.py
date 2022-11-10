@@ -10,18 +10,20 @@ app = Flask(__name__)
 
 @app.route('/',methods=['GET', 'POST'])
 def renderLoginPage():
-    res = runQuery("SELECT * FROM event_type")
+    events = runQuery("SELECT * FROM events")
+    branch =  runQuery("SELECT * FROM branch")
     if request.method == 'POST':
         Tcount = runQuery("SELECT COUNT(*) FROM participants ")[0] 
         count = Tcount[0] + 1
         Name = request.form['FirstName'] + " " + request.form['LastName']
         Mobile = request.form['MobileNumber']
-        Branch = request.form['Branch']
+        Branch_id = request.form['Branch']
         Event = request.form['Event']
+        Email = request.form['Email']
         # print(Name,Mobile,Branch,Event)
-        runQuery("INSERT INTO participants VALUES({},{},\"{}\",\"xyz@gmail.com\",\"{}\",\"COEP\",\"{}\");".format(count,Event,Name,Mobile,Branch))
+        runQuery("INSERT INTO participants VALUES({},{},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(count,Event,Name,Email,Mobile,Branch_id))
         return redirect('/')
-    return render_template('index.html',events = res)
+    return render_template('index.html',events = events,branchs = branch)
     
 
 
@@ -61,7 +63,7 @@ def runQuery(query):
     try:
         db = mysql.connector.connect(
             host='localhost',
-            database='event',
+            database='event_mgmt',
             user='root',
             password='password')
 
