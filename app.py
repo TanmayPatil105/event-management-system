@@ -39,8 +39,10 @@ def renderAdmin():
 
         if UN=='Admin' and PS=='password':
             return redirect('/eventType')
+        elif UN!='Admin':
+            return render_template('admin.html',errors=["Wrong Username"])
         else:
-            return render_template('loginfail.html')
+            return render_template('admin.html',errors=["Wrong Password"])
     return render_template('admin.html')    
 
 @app.route('/eventType',methods=['GET','POST'])

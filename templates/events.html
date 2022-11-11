@@ -30,12 +30,14 @@
                 {% endfor %}
             </tbody>
         </table>
-        <div >     
             
             <button id="addbtn"type="button" class="mb-5 btn btn-primary btn-lg"style = "margin-left:40%;" >
             + Add new Event
             </button>
-            <div style ="background-color:#fdfcdc;left:300px;position:relative;height:600px;width:950px;border-radius:12px;"id="eventname"class="w3-card-4 border border-dark" style = "display:none; margin-top:10px; margin-left:100px; margin-right: 100px;">
+        <div class="row" style="margin-left: 200px;display: none;" id="eventname">  
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 w3-card-4 border border-dark" style ="background-color:#fdfcdc;position:relative;height:600px;width:950px;border-radius:12px;">
                 <div style="border-radius:12px;position:relative;background-color: green;"class="w3-container "><h2 style="font-family:monospace;text-align:center;color:white">Event Addition form</h2></div>
                 <form class="w3-container" method="post">
 
@@ -60,21 +62,20 @@
                 <!-- <a class="btn "href="" style="color:white; background-color:green; margin-left:5px; margin-top:90px;font-size:18px;">submit</a> -->
                 </form>
             </div>
-            <script>
-                const targetDiv = document.getElementById("eventname")
-                const btn=document.getElementById("addbtn")
-                btn.onclick =function() {
-                    if (targetDiv.style.display == "none") {
-                            targetDiv.style.display = "block";
-                    }
-                    else{
-                        targetDiv.style.display = "none";
-                    }
-                };  
-            </script>
         </div>
-    
     </div>
+    <script>
+        const targetDiv = document.getElementById("eventname")
+        const btn=document.getElementById("addbtn")
+        btn.onclick =function() {
+            if (targetDiv.style.display == "none") {
+                    targetDiv.style.display = "block";
+            }
+            else{
+                targetDiv.style.display = "block";
+            }
+        };  
+    </script>
     <script type="text/javascript" src="{{ url_for('static',filename='app.js') }}"></script>
 </body>
 </html>
