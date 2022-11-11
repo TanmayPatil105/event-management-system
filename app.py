@@ -18,7 +18,10 @@ def renderLoginPage():
         Branch_id = request.form['Branch']
         Event = request.form['Event']
         Email = request.form['Email']
-        # print(Name,Mobile,Branch,Event)
+
+        if len(Mobile) != 10:
+            return render_template('index.html',events = events,branchs = branch,errors = ["Invalid Mobile Number!"])
+
         runQuery("INSERT INTO participants(event_id,fullname,email,mobile,college,branch_id) VALUES({},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(Event,Name,Email,Mobile,Branch_id))
         return redirect('/')
     return render_template('index.html',events = events,branchs = branch)

@@ -73,6 +73,13 @@
                     <br/>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-5">
+                </div>
+                {% for error in errors %}
+                    <h4 class="col-md-2 text-warning">{{error}}</h4>
+                {% endfor %}
+            </div>
             <div class="row" style="margin-top: 20px;margin-bottom: 50px;">
                 <div class="col-md-5">
                 </div>
