@@ -13,15 +13,13 @@ def renderLoginPage():
     events = runQuery("SELECT * FROM events")
     branch =  runQuery("SELECT * FROM branch")
     if request.method == 'POST':
-        Tcount = runQuery("SELECT COUNT(*) FROM participants ")[0] 
-        count = Tcount[0] + 1
         Name = request.form['FirstName'] + " " + request.form['LastName']
         Mobile = request.form['MobileNumber']
         Branch_id = request.form['Branch']
         Event = request.form['Event']
         Email = request.form['Email']
         # print(Name,Mobile,Branch,Event)
-        runQuery("INSERT INTO participants VALUES({},{},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(count,Event,Name,Email,Mobile,Branch_id))
+        runQuery("INSERT INTO participants(event_id,fullname,email,mobile,college,branch_id) VALUES({},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(Event,Name,Email,Mobile,Branch_id))
         return redirect('/')
     return render_template('index.html',events = events,branchs = branch)
     
@@ -48,19 +46,20 @@ def renderAdmin():
 @app.route('/eventType',methods=['GET','POST'])
 def getEvents():
     res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;")
-    types = runQuery("SELECT * FROM event_types;")
+    types = runQuery("SELECT * FROM event_type;")
+    location = runQuery("SELECT * FROM location")
     if request.method == "POST":
         Name = request.form["Newevent"]
         fee=request.form["Fee"]
         participants = request.form["MAXP"]
         imglink=request.form["LNK"]
-        Type=request.form["typeid"]
-        runQuery("INSERT INTO events(event_title,event_price,participents,img_link,type_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,imglink,Type))
+        Type=request.form["EventType"]
+        runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,imglink,Type))
     if res == []:
         return '<h4>No Event Types</h4>'
     else:
-        return render_template('events.html',events = res,types = res)
-    
+        return render_template('events.html',events = res,types = types,locations = location)
+
 
 def runQuery(query):
     try:

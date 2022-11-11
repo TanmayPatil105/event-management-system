@@ -42,25 +42,29 @@
                 <form class="w3-container" method="post">
 
                 <div style="font-size:large;left:270px;position:relative;"><label style="font-size: x-large;font-weight: bold;"class="sr-only mt-5 mb-4 ">Add new Event&emsp;</label>
-                    <input style="border-radius:6px;"class="w3-input" type="text" name="Newevent"  placeholder="Enter event type "></div>
-                
+                    <input style="border-radius:6px;"class="w3-input" type="text" name="newEvent"  placeholder="Enter event type ">
+                </div>
                 <div style="font-size:larger;left:270px;position:relative;"> <label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-3">Max participants&ensp;</label>
-                    <input style="border-radius:6px;"class="w3-input"name="MAXP" type="number" placeholder="Enter maximum participants"></div>
-
-                <br>
-                <div style="font-size:larger;font-size:large;left:270px;position:relative;"><label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-4">Enter image link&ensp;</label>
-                    <input  style="border-radius:6px;"class="w3-input"name="LNK" type="text" placeholder="Enter image link"></div>
-
+                    <input style="border-radius:6px;"class="w3-input"name="maxP" type="number" placeholder="Enter maximum participants">
+                </div>
                 <div style="font-size:larger;left:270px;position:relative;"><label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-3">Registration fee&ensp;</label>
-                <input  style="border-radius:6px;"class="w3-input"name="Fee" type="number" placeholder="Enter registrtation fee"></div>
-
-                <br>
-                <div class="form-group rounded">
-                    <label class="h4" for="inlineFormCustomSelect">Event Type</label>
+                    <input  style="border-radius:6px;"class="w3-input"name="Fee" type="number" placeholder="Enter registration fee">
+                </div>
+                <div class="form-group rounded" style="font-size:larger;left:270px;position:relative;">
+                    <label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-3">Event Type</label>
                     <select name="EventType" class="form-control w-100 border border-dark">
                         <option selected>Select Event Type</option>
                         {% for type in types %}
                             <option value={{type[0]}}>{{type[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group rounded row" style="font-size:larger;left:270px;position:relative;">
+                    <label style="font-size: x-large;font-weight: bold;"class="mt-3 sr-only mb-3">Location</label>
+                    <select name="location" class="form-control w-100 border border-dark">
+                        <option selected>Select Location</option>
+                        {% for location in locations %}
+                            <option value={{location[0]}}>{{location[1]}}</option>
                         {% endfor %}
                     </select>
                 </div>
