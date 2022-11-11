@@ -48,6 +48,7 @@ def renderAdmin():
 @app.route('/eventType',methods=['GET','POST'])
 def getEvents():
     res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;")
+    types = runQuery("SELECT * FROM event_types;")
     if request.method == "POST":
         Name = request.form["Newevent"]
         fee=request.form["Fee"]
@@ -58,7 +59,7 @@ def getEvents():
     if res == []:
         return '<h4>No Event Types</h4>'
     else:
-        return render_template('events.html',events = res)
+        return render_template('events.html',events = res,types = res)
     
 
 def runQuery(query):
