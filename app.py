@@ -38,7 +38,11 @@ def renderAdmin():
         UN = request.form['username']
         PS = request.form['password']
 
-        if UN=='Admin' and PS=='password':
+        cred = runQuery("SELECT * FROM admin")
+
+        print(cred)
+
+        if UN==cred[0][0] and PS==cred[0][1]:
             return redirect('/eventType')
         elif UN!='Admin':
             return render_template('admin.html',errors=["Wrong Username"])

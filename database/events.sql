@@ -134,3 +134,10 @@ INSERT INTO `location` (`location_name`) VALUES
 
 -- ------------------------------------------------------------------------------------------------------------
 
+CREATE TABLE `admin`(
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+);
+
+INSERT INTO `admin` VALUES
+('Admin','password')
