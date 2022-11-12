@@ -35,7 +35,7 @@ INSERT INTO `events` (`event_id`, `event_title`, `event_price`, `participants`, 
 (1, 'Mindspark', 50, 4, 1,1),
 (2, 'Impressions', 50, 2, 3,3),
 (3, 'Zest', 50, 1, 4,3),
-(4, 'RE-init', 50, 2, 1,2),
+(4, 'RE-INIT', 50, 2, 1,2),
 (5, 'FlossMeet', 50, 1, 1,5),
 (6, 'Spandan', 50, 1, 3,1);
 
@@ -67,7 +67,7 @@ CREATE TABLE `participants` (
   `p_id` int(10) NOT NULL,
   `event_id` int(10) NOT NULL,
   `fullname` varchar(100) NOT NULL,
-  `email` varchar(300) NOT NULL UNIQUE,
+  `email` varchar(300) NOT NULL,
   `mobile` char(10) NOT NULL,
   `college` varchar(300) NOT NULL,
   `branch_id` int(10) NOT NULL

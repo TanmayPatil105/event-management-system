@@ -25,8 +25,11 @@ def renderLoginPage():
         if Email[-4:] != '.com':
             return render_template('index.html',events = events,branchs = branch, errors = ["Invalid Email!"])
 
-        if len("SELECT * FROM participants WHERE event_id={} AND mobile={}".format(Event,Mobile)) > 0 :
+        if len(runQuery("SELECT * FROM participants WHERE event_id={} AND mobile={}".format(Event,Mobile))) > 0 :
             return render_template('index.html',events = events,branchs = branch, errors = ["Student already Registered for the Event!"])
+
+        if runQuery("SELECT COUNT(*) FROM participants WHERE event_id={}".format(Event)) >= runQuery("SELECT participants FROM events WHERE event_id={}".format(Event)):
+            return render_template('index.html',events = events,branchs = branch, errors = ["Participants count fullfilled Already!"])
 
         runQuery("INSERT INTO participants(event_id,fullname,email,mobile,college,branch_id) VALUES({},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(Event,Name,Email,Mobile,Branch_id))
 
@@ -58,6 +61,7 @@ def renderAdmin():
         else:
             return render_template('admin.html',errors=["Wrong Password"])
     return render_template('admin.html')    
+
 
 
 @app.route('/eventType',methods=['GET','POST'])
