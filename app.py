@@ -71,10 +71,7 @@ def getEvents():
         participants = request.form["maxP"]
         Type=request.form["EventType"]
         runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,Type))
-    if res == []:
-        return '<h4>No Event Types</h4>'
-    else:
-        return render_template('events.html',events = res,types = types,locations = location)
+    return render_template('events.html',events = res,types = types,locations = location)
 
 
 def runQuery(query):
