@@ -54,8 +54,7 @@ def getEvents():
     if request.method == "POST":
         Name = request.form["Newevent"]
         fee=request.form["Fee"]
-        participants = request.form["MAXP"]
-        imglink=request.form["LNK"]
+        participants = request.form["maxP"]
         Type=request.form["EventType"]
         runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,imglink,Type))
     if res == []:
