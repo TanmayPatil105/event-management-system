@@ -70,11 +70,12 @@ def getEvents():
     types = runQuery("SELECT * FROM event_type;")
     location = runQuery("SELECT * FROM location")
     if request.method == "POST":
-        Name = request.form["Newevent"]
+        Name = request.form["newEvent"]
         fee=request.form["Fee"]
         participants = request.form["maxP"]
         Type=request.form["EventType"]
-        runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,Type))
+        Location = request.form["EventLocation"]
+        runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",{},{},{},{});".format(Name,fee,participants,Type, Location))
     return render_template('events.html',events = res,types = types,locations = location)
 
 
