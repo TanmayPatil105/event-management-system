@@ -63,7 +63,13 @@ def getEvents():
     else:
         return render_template('events.html',events = res,types = types,locations = location)
 
-
+@app.route('/eventinfo')
+def rendereventinfo():
+    events=runQuery("select * from events left join event_type using(type_id) left join location using(location_id);")
+    if events == []:
+        return '<h2>Sorry, We have no upcoming events &#128546;<h2>'
+    else:
+        return render_template('events_info.html',events = events)
 def runQuery(query):
     try:
         db = mysql.connector.connect(
