@@ -20,10 +20,18 @@ def renderLoginPage():
         Email = request.form['Email']
 
         if len(Mobile) != 10:
-            return render_template('index.html',events = events,branchs = branch,errors = ["Invalid Mobile Number!"])
+            return render_template('index.html',events = events,branchs = branch, errors = ["Invalid Mobile Number!"])
+
+        if Email[-4:] != '.com':
+            return render_template('index.html',events = events,branchs = branch, errors = ["Invalid Email!"])
+
+        if len("SELECT * FROM participants WHERE event_id={} AND mobile={}".format(Event,Mobile)) > 0 :
+            return render_template('index.html',events = events,branchs = branch, errors = ["Student already Registered for the Event!"])
 
         runQuery("INSERT INTO participants(event_id,fullname,email,mobile,college,branch_id) VALUES({},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(Event,Name,Email,Mobile,Branch_id))
+
         return redirect('/')
+
     return render_template('index.html',events = events,branchs = branch)
     
 
@@ -31,6 +39,7 @@ def renderLoginPage():
 @app.route('/loginfail')
 def renderLoginFail():
     return render_template('loginfail.html')
+
 
 @app.route('/admin', methods=['GET', 'POST'])
 def renderAdmin():
@@ -50,6 +59,7 @@ def renderAdmin():
             return render_template('admin.html',errors=["Wrong Password"])
     return render_template('admin.html')    
 
+
 @app.route('/eventType',methods=['GET','POST'])
 def getEvents():
     res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;")
@@ -60,7 +70,7 @@ def getEvents():
         fee=request.form["Fee"]
         participants = request.form["maxP"]
         Type=request.form["EventType"]
-        runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,imglink,Type))
+        runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",\"{}\",\"{}\",\"{}\",\"{}\");".format(Name,fee,participants,Type))
     if res == []:
         return '<h4>No Event Types</h4>'
     else:

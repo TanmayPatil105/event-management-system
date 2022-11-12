@@ -140,4 +140,4 @@ CREATE TABLE `admin`(
 );
 
 INSERT INTO `admin` VALUES
-('Admin','password')
+('Admin','password');
