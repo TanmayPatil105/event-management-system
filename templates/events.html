@@ -32,47 +32,71 @@
             </tbody>
         </table>
             
-            <button id="addbtn"type="button" class="mb-5 btn btn-primary btn-lg"style = "margin-left:40%;" >
+        <button id="addbtn"type="button" class="mb-5 btn btn-primary btn-lg"style = "margin-left:45%;" >
             + Add new Event
             </button>
-        <div class="row" style="margin-left: 380px;display: none;" id="eventname">  
+        <div class="row" style="display: none;" id="eventname">  
             <div class="col-md-4">
             </div>
-            
-            <div class="col-md-4 w3-card-4 border border-dark" style ="background-color:#e0fbfc;position:relative;height:600px;width:950px;border-radius:12px;">    
+            <div class="border border-dark">    
                 <div style="border-radius:12px;position:relative;"class="w3-container "><h2 style="font-weight:bold;font-family:popins;text-align:center;"> &bull; Event Addition form  &bull;</h2></div>
                 <form class="" method="post">
-
-                <div style="font-size:large;left:270px;position:relative;"><label style="font-size: x-large;"class="sr-only mt-5 mb-4 ">Add new Event&emsp;</label>
-                    <input style="border-radius:6px;"class="w3-input" type="text" name="newEvent"  placeholder="Enter event type ">
-                </div>
-                <div style="font-size:larger;left:270px;position:relative;"> <label style="font-size: x-large;"class="mt-3 sr-only mb-3">Max participants&ensp;</label>
-                    <input style="border-radius:6px;"class="w3-input"name="maxP" type="number" placeholder="Enter maximum participants">
-                </div>
-                <div style="font-size:larger;left:270px;position:relative;"><label style="font-size: x-large;"class="mt-3 sr-only mb-3">Registration fee&ensp;</label>
-                    <input  style="border-radius:6px;"class="w3-input"name="Fee" type="number" placeholder="Enter registration fee">
-                </div>
-                <div class="form-group rounded" style="width:250px;font-size:larger;left:270px;position:relative;">
-                    <label style="font-size: x-large;"class="mt-3 sr-only mb-3">Event Type</label>
-                    <select style="left:230px;position:relative;"name="EventType" class="form-control w-100 border border-dark">
-                        <option selected>Select Event Type</option>
-                        {% for type in types %}
-                            <option value={{type[0]}}>{{type[1]}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="form-group rounded row" style="width:300px;font-size:larger;left:270px;position:relative;">
-                    <label style="font-size: x-large;"class="mt-3 sr-only mb-3">Location</label>
-                    <select style= "left:200px;position:relative;" name="location" class="form-control w-100 border border-dark">
-                        <option selected>Select Location</option>
-                        {% for location in locations %}
-                            <option value={{location[0]}}>{{location[1]}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-              
-                <br>
-                <button style ="font-size:larger;left:450px;position:relative"type="submit" class="mt-4 mb-3 btn btn-primary" onclick="login()">Submit</button>
+                <div class="row bg-dark text-light">
+                    <div class="px-5 bg-dark">
+                      <form method="post" style="margin-top:100px;">
+                        <br/>
+                          <div class="row">
+                              <div class="col-md-1"></div>
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label class="h4" for="inlineFormCustomSelect">Add new Event</label>
+                                      <input name="newEvent" type="text" class="form-control border border-dark" id="eventname" aria-describedby="eventname" placeholder="Enter Event Name">
+                                      <br/>
+                                    <div class="form-group rounded">
+                                        <label class="h4" for="inlineFormCustomSelect">Event Type</label>
+                                        <select name="EventType" class="form-control w-100 border border-dark" id="EventType">
+                                            <option selected>Select Event Type</option>
+                                            {% for type in types %}
+                                            <option value={{type[0]}}>{{type[1]}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                  </div>
+                                  <br/>
+                              </div>
+                              <div class="col-md-2">
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="h4" for="inlineFormCustomSelect">Max participants</label>
+                                    <input name="maxP" type="number" class="form-control border border-dark" id="maxparticipants" aria-describedby="maxparticipants" placeholder="Enter maximum participants">
+                                    <br/>
+                                  <div class="form-group rounded">
+                                      <label class="h4" for="inlineFormCustomSelect">Event Location</label>
+                                      <select name="EventLocation" class="form-control w-100 border border-dark" id="EventLocation">
+                                          <option selected>Select Location</option>
+                                          {% for location in locations %}
+                                          <option value={{location[0]}}>{{location[1]}}</option>
+                                          {% endfor %}
+                                      </select>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="h4" for="inlineFormCustomSelect">Registration Fee</label>
+                                        <input name="Fee" type="number" class="form-control border border-dark" id="Fee" aria-describedby="Fee" placeholder="Enter registration fee">
+                                    <br/>
+                                </div>
+                          </div>
+                          <br>
+                          <div class="col-md-4">
+                          </div>
+                          <div class="">
+                            <button style ="font-size:larger;left:47%;position:relative"type="submit" class="mt-4 mb-3 btn btn-primary" onclick="login()">Submit</button>
+                        </div>
                 </form>
             </div>
         </div>
@@ -85,7 +109,7 @@
                     targetDiv.style.display = "block";
             }
             else{
-                targetDiv.style.display = "block";
+                targetDiv.style.display = "none";
             }
         };  
     </script>
