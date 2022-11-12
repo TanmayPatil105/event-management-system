@@ -4,7 +4,7 @@ USE event_mgmt;
 
 CREATE TABLE `events` (
   `event_id` int(100) NOT NULL,
-  `event_title` text NOT NULL,
+  `event_title` varchar(100) NOT NULL,
   `event_price` int(20) NOT NULL,
   `participants` int(100) NOT NULL,
   `type_id` int(10) NOT NULL,

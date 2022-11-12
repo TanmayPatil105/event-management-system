@@ -66,7 +66,7 @@ def renderAdmin():
 
 @app.route('/eventType',methods=['GET','POST'])
 def getEvents():
-    res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;")
+    res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;") # Query to be modified
     types = runQuery("SELECT * FROM event_type;")
     location = runQuery("SELECT * FROM location")
     if request.method == "POST":
