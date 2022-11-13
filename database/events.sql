@@ -8,7 +8,8 @@ CREATE TABLE `events` (
   `event_price` int(20) NOT NULL,
   `participants` int(100) NOT NULL,
   `type_id` int(10) NOT NULL,
-  `location_id` int(10) NOT NULL
+  `location_id` int(10) NOT NULL,
+  `date` DATE NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -31,13 +32,13 @@ ALTER TABLE `events`
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`event_id`, `event_title`, `event_price`, `participants`, `type_id`,`location_id`) VALUES
-(1, 'Mindspark', 50, 4, 1,1),
-(2, 'Impressions', 50, 2, 3,3),
-(3, 'Zest', 50, 1, 4,3),
-(4, 'RE-INIT', 50, 2, 1,2),
-(5, 'FlossMeet', 50, 1, 1,5),
-(6, 'Spandan', 50, 1, 3,1);
+INSERT INTO `events` (`event_id`, `event_title`, `event_price`, `participants`, `type_id`,`location_id`,`date`) VALUES
+(1, 'Mindspark', 50, 4, 1,1,'2023-01-1'),
+(2, 'Impressions', 50, 2, 3,3,'2022-12-21'),
+(3, 'Zest', 50, 1, 4,3,'2023-02-01'),
+(4, 'RE-INIT', 50, 2, 1,2,'2022-11-05'),
+(5, 'FlossMeet', 50, 1, 1,5,'2023-04-11'),
+(6, 'Spandan', 50, 1, 3,1,'2022-11-03');
 
 
 -- --------------------------------------------------------------------------------------------------------
@@ -78,13 +79,16 @@ ALTER TABLE `participants`
 
 
 ALTER TABLE `participants`
-  ADD FOREIGN KEY (`event_id`) REFERENCES events(`event_id`);
+  ADD FOREIGN KEY (`event_id`) REFERENCES events(`event_id`) 
+  ON DELETE CASCADE;
 
 ALTER TABLE `participants`
   ADD FOREIGN KEY (`branch_id`) REFERENCES branch(`branch_id`);
   
 ALTER TABLE `participants`
   MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT;
+
+
 
 -- -----------------------------------------------------------------------------
 
