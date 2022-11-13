@@ -96,7 +96,7 @@ def getEvents():
 
 @app.route('/eventinfo')
 def rendereventinfo():
-    events=runQuery("select * from events left join event_type using(type_id) left join location using(location_id);")
+    events=runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.event_id ) AS count FROM events AS E LEFT JOIN event_type USING(type_id) LEFT JOIN location USING(location_id);")
 
     return render_template('events_info.html',events = events)
 
