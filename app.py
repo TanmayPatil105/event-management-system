@@ -73,16 +73,24 @@ def getEvents():
 
     location = runQuery("SELECT * FROM location")
 
+    events = runQuery("SELECT * FROM events;")
+
     if request.method == "POST":
-        Name = request.form["newEvent"]
-        fee=request.form["Fee"]
-        participants = request.form["maxP"]
-        Type=request.form["EventType"]
-        Location = request.form["EventLocation"]
+        try:
 
-        runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",{},{},{},{});".format(Name,fee,participants,Type, Location))
+            Name = request.form["newEvent"]
+            fee=request.form["Fee"]
+            participants = request.form["maxP"]
+            Type=request.form["EventType"]
+            Location = request.form["EventLocation"]
+            runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",{},{},{},{});".format(Name,fee,participants,Type, Location))
 
-    return render_template('events.html',events = res,types = types,locations = location)
+        except:
+            EventId=request.form["EventId"]
+            runQuery("DELETE FROM events WHERE event_id={}".format(EventId))
+
+    return render_template('events.html',devents=events,events = res,types = types,locations = location)
+
 
 @app.route('/eventinfo')
 def rendereventinfo():
