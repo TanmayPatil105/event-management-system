@@ -33,7 +33,7 @@ def renderLoginPage():
 
         runQuery("INSERT INTO participants(event_id,fullname,email,mobile,college,branch_id) VALUES({},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(Event,Name,Email,Mobile,Branch_id))
 
-        return redirect('/')
+        return render_template('index.html',errors=["Succesfully Registered!"])
 
     return render_template('index.html',events = events,branchs = branch)
     
