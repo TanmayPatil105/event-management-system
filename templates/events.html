@@ -48,7 +48,7 @@
         <button id="delbtn" type="button" class="mb-5 btn btn-primary btn-lg" style="margin-left:75%;">
             Delete Event
         </button>
-        <div style="display: none;" id="delevent">
+        <div style=" align-items: center; display: flex; justify-content: center;display: none;" id="delevent">
             <form method="post">
                 <div  class="form-group rounded">
                     <label class="h4" for="inlineFormCustomSelect">Event</label>
@@ -146,13 +146,28 @@
     </div>
     <script>
         const targetDiv = document.getElementById("eventname")
+        const bdiv =document.getElementById("delevent")
         const btn=document.getElementById("addbtn")
         btn.onclick =function() {
-            if (targetDiv.style.display == "none") {
+            if (targetDiv.style.display == "none" && bdiv.style.display == "none") {
                     targetDiv.style.display = "block";
             }
             else{
                 targetDiv.style.display = "none";
+            }
+        };  
+    </script>
+
+    <script>
+        const tarDiv = document.getElementById("delevent")
+        const adiv =document.getElementById("eventname")
+        const btn1=document.getElementById("delbtn")
+        btn1.onclick =function() {
+            if (tarDiv.style.display == "none" && adiv.style.display == "none") {
+                    tarDiv.style.display = "block";
+            }
+            else{
+                tarDiv.style.display = "none";
             }
         };  
     </script>
