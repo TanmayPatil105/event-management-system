@@ -23,10 +23,10 @@
     ></script>
   </head>
 
-  <body style="background-color: #feeafa">
+  <body style="background-color: #caf0f8">
     <div
       style="
-        background-color: #a63a50;
+        background-color: #390099;
         height: 7rem;
         align-items: center;
         display: flex;
@@ -49,31 +49,35 @@
     >
       <div class="card border-success mb-3 bg-dark" style="width: 60rem">
         <div
-          style="align-items: center; display: flex; justify-content: center"
-          class="text-danger h1 card-header bg-transparent border-success"
+          style="font-family: serif;color:#b5e48c;align-items: center; display: flex; justify-content: center"
+          class=" h1 card-header bg-transparent border-success"
         >
           {{event[3]}}
         </div>
-        <div class="card-body text-success">
-          <h5
+        <div class="card-body ">
+          <h4
             class="card-title"
-            style="align-items: center; display: flex; justify-content: center"
+            style="color:#fdc5f5;align-items: center; display: flex; justify-content: center"
           >
             <b>{{event[3]}}</b>&nbsp;is a flagship {{event[6]}} event of College
             of engineering Pune
-          </h5>
+          </h4>
         </div>
         <div
           class="text-info card-footer bg-transparent border-success"
           style="align-items: center; display: flex; justify-content: center"
         >
-          Venue: {{event[7]}}
+        <h4>
+            Venue: {{event[7]}}
+        </h4>        
         </div>
         <div
           class="text-info card-footer bg-transparent border-success"
           style="align-items: center; display: flex; justify-content: center"
         >
-          Registration fee: &#8377;{{event[4]}}
+        <h5>
+            Registration fee: &#8377;{{event[4]}}
+        </h5>  
         </div>
       </div>
     </div>
