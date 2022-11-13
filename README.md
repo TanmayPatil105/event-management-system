@@ -1,6 +1,7 @@
 # Event Management System
+![Event Management System](https://user-images.githubusercontent.com/92677342/201507545-7f4b62dd-e31a-4f77-9777-71734b620ce7.png)
 
-### Technologies Used :
+## Technologies Used :
 
 - Flask / Python
 - MySQL
