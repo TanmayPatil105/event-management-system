@@ -1,4 +1,4 @@
-## Event Management System
+# Event Management System
 
 ### Technologies Used :
 
