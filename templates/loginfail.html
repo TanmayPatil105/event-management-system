@@ -18,7 +18,7 @@
         <nav class="navbar navbar-light bg-dark justify-content-between text-light px-5">
             <a class="navbar-brand text-light">Event Management System</a>
             <form class="form-inline">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"style="font-family :arial;color:#f1faee;background-color:#00b4d8;">Admin Login</button>
+              <a href="/admin" class="btn btn-outline-primary my-2 my-sm-0 bg-primary text-dark" type="submit">Admin Login</a>
             </form>
         </nav>
     </div>
@@ -26,14 +26,15 @@
 
     </div>
     <div class="row">
-      <div class="col-md-4 px-5">
-        <div class="h1" style="margin-top:100px;margin-left:70px">Login Failed!</div>
-        <a class="btn"href="/admin" style="color:white; background-color:green;margin-left:105px;font-size:28px;">Try again</a>
+      <div class="col-md-5 px-5">
+        {% for error in errors %}
+          <div class="h3" style="margin-top:100px;margin-left:70px">{{error}}</div>
+        {% endfor %}
+        <a class="btn"href="/" style="color:white; background-color:green;margin-left:105px;font-size:28px;">Try again</a>
       </div>
       <div class="col-md-4">
         <img src="../static/images/tryagain2.jpg" alt="" style="border:solid #0a9396; border-radius:35px; width:500px;margin-right:210px;">
       </div>
     </div>
-    <script type="text/javascript" src="{{ url_for('static',filename='app.js') }}"></script>
 </body>
 </html>

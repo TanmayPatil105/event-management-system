@@ -20,16 +20,16 @@ def renderLoginPage():
         Email = request.form['Email']
 
         if len(Mobile) != 10:
-            return render_template('index.html',events = events,branchs = branch, errors = ["Invalid Mobile Number!"])
+            return render_template('loginfail.html',errors = ["Invalid Mobile Number!"])
 
         if Email[-4:] != '.com':
-            return render_template('index.html',events = events,branchs = branch, errors = ["Invalid Email!"])
+            return render_template('loginfail.html', errors = ["Invalid Email!"])
 
         if len(runQuery("SELECT * FROM participants WHERE event_id={} AND mobile={}".format(Event,Mobile))) > 0 :
-            return render_template('index.html',events = events,branchs = branch, errors = ["Student already Registered for the Event!"])
+            return render_template('loginfail.html', errors = ["Student already Registered for the Event!"])
 
         if runQuery("SELECT COUNT(*) FROM participants WHERE event_id={}".format(Event)) >= runQuery("SELECT participants FROM events WHERE event_id={}".format(Event)):
-            return render_template('index.html',events = events,branchs = branch, errors = ["Participants count fullfilled Already!"])
+            return render_template('loginfail.html', errors = ["Participants count fullfilled Already!"])
 
         runQuery("INSERT INTO participants(event_id,fullname,email,mobile,college,branch_id) VALUES({},\"{}\",\"{}\",\"{}\",\"COEP\",\"{}\");".format(Event,Name,Email,Mobile,Branch_id))
 
@@ -39,7 +39,7 @@ def renderLoginPage():
     
 
 
-@app.route('/loginfail')
+@app.route('/loginfail',methods=['GET'])
 def renderLoginFail():
     return render_template('loginfail.html')
 
@@ -85,6 +85,8 @@ def rendereventinfo():
         return '<h2>Sorry, We have no upcoming events &#128546;<h2>'
     else:
         return render_template('events_info.html',events = events)
+
+
 def runQuery(query):
     try:
         db = mysql.connector.connect(
