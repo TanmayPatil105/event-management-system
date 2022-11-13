@@ -20,12 +20,8 @@
         }
     </style>
 </head>
-
 <body style="background-color: #f1faee;">
-    <div style="background-color:#004e89" ;class="mt-2 mb-3">
-        <h1 style="font-weight:bolder;left:37%;position:relative;font-family:'Copperplate';color:#ccdbfd">⟹ Event
-            Administrator ⟸</h1>
-    </div>
+    <div style="background-color:#004e89";class="mt-2 mb-3"><h1 style="font-weight:bolder;left:37%;position:relative;font-family:'Copperplate';color:#ccdbfd">⟹ Event Administrator ⟸</h1></div>
     <div style="padding-top: 50px; margin: 30px;">
         <table class="table">
             <thead class="thead-dark bg-dark text-light">
@@ -144,34 +140,23 @@
                                     </div>
                             </form>
                         </div>
-                    </div>
-                    <script>
-                        const targetDiv = document.getElementById("eventname")
-                        const adiv = document.getElementById("delevent")
-                        const btn = document.getElementById("addbtn")
-                        btn.onclick = function () {
-                            if (targetDiv.style.display == "none" && adiv.style.display == "none") {
-                                targetDiv.style.display = "block";
-                            }
-                            else {
-                                targetDiv.style.display = "none";
-                            }
-                        };  
-                    </script>
-                    <script>
-                        const tarDiv = document.getElementById("delevent")
-                        const bdiv =document.getElementById("eventname")
-                        const btn1 = document.getElementById("delbtn")
-                        btn1.onclick = function () {
-                            if (tarDiv.style.display == "none" && bdiv.style.display == "none" ) {
-                                tarDiv.style.display = "block";
-                            }
-                            else {
-                                tarDiv.style.display = "none";
-                            }
-                        };  
-                    </script>
-                    <script type="text/javascript" src="{{ url_for('static',filename='app.js') }}"></script>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const targetDiv = document.getElementById("eventname")
+        const btn=document.getElementById("addbtn")
+        btn.onclick =function() {
+            if (targetDiv.style.display == "none") {
+                    targetDiv.style.display = "block";
+            }
+            else{
+                targetDiv.style.display = "none";
+            }
+        };  
+    </script>
+    <script type="text/javascript" src="{{ url_for('static',filename='app.js') }}"></script>
 </body>
 
 </html>
