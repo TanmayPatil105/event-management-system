@@ -74,23 +74,33 @@
         <button id="delbtn" type="button" class="mb-5 btn btn-primary btn-lg" style="margin-left:75%;">
             Delete Event
         </button>
-        <div style=" align-items: center; display: flex; justify-content: center;display: none;" id="delevent">
-            <form method="post">
-                <div  class="form-group rounded">
-                    <label class="h4" for="inlineFormCustomSelect">Event</label>
-                    <select name="EventId" class="form-control w-100 border border-dark">
-                        <option selected>Select Event to Delete</option>
-                        {% for event in events %}
-                        <option value="{{event[0]}}">{{event[1]}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary border border-dark col-md-2">
-                    Delete
-                </button>
-            </form>
-        </div>
+        <div class="container">
+            <div class="row" style="align-items:center; display: flex; justify-content: center;">
+                <div class="col-sm">
 
+                </div>
+                <div class="col-xl" style ="padding:10px;align-items:center; display: flex; justify-content: center;">
+                    <div class="text-dark " style="align-items:center; display: flex; justify-content: center;display: none;background-color: #f1faee;;" id="delevent">
+                        <form method="post">
+                        
+                            <div class="form-group rounded">
+                                <label class="h4" for="inlineFormCustomSelect">Event</label>
+                                <select name="EventId" class="form-control w-100 border border-dark">
+                                <option selected>Select Event to Delete</option>
+                                {% for event in events %}
+                                <option value="{{event[0]}}">{{event[1]}}</option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <button style="align-items: center;display: flex; justify-content: center;"type="submit" class="btn btn-primary border border-dark">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
 
         <div class="row" style="display: none;" id="eventname">
             <div class="col-md-4">
