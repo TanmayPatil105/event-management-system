@@ -1,40 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Management System</title>
+    <style></style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
     <style>
- 
+      body {
+        overflow-x: hidden;
+      }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-    <style>body{overflow-x: hidden;}</style>
-</head>
-<body class="bg-light">
+  </head>
+  <body class="bg-light">
     <div>
-        <nav class="navbar navbar-light bg-dark justify-content-between text-light px-5">
-            <a class="navbar-brand text-light">Event Management System</a>
-            <form class="form-inline">
-              <a href="/admin" class="btn btn-outline-primary my-2 my-sm-0 bg-primary text-dark" type="submit">Admin Login</a>
-            </form>
-        </nav>
+      <nav
+        class="navbar navbar-light bg-dark justify-content-between text-light px-5"
+      >
+        <a class="navbar-brand text-light">Event Management System</a>
+        <form class="form-inline">
+          <a
+            href="/admin"
+            class="btn btn-outline-primary my-2 my-sm-0 bg-primary text-dark"
+            type="submit"
+            >Admin Login</a
+          >
+        </form>
+      </nav>
     </div>
-    <div class="bg-light" style="height:100px">
-
-    </div>
+    <div class="bg-light" style="height: 100px"></div>
     <div class="row">
       <div class="col-md-5 px-5">
         {% for error in errors %}
-          <div class="h3" style="margin-top:100px;margin-left:70px">{{error}}</div>
+        <div class="h3" style="margin-top: 100px; margin-left: 70px">
+          {{error}}
+        </div>
         {% endfor %}
-        <a class="btn"href="/" style="color:white; background-color:green;margin-left:105px;font-size:28px;">Try again</a>
+        <a
+          class="btn"
+          href="/"
+          style="
+            color: white;
+            background-color: green;
+            margin-left: 105px;
+            font-size: 28px;
+          "
+          >Try again</a
+        >
       </div>
       <div class="col-md-4">
-        <img src="../static/images/tryagain2.jpg" alt="" style="border:solid #0a9396; border-radius:35px; width:500px;margin-right:210px;">
+        <img
+          src="../static/images/tryagain2.jpg"
+          alt=""
+          style="
+            border: solid #0a9396;
+            border-radius: 35px;
+            width: 500px;
+            margin-right: 210px;
+          "
+        />
       </div>
     </div>
-</body>
+  </body>
 </html>

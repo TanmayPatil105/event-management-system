@@ -1,93 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Management System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-    <style>body{overflow-x: hidden;}</style>
-</head>
-<body class="bg-light">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
     <div>
-        <nav class="navbar navbar-light bg-dark justify-content-between text-light px-5" style="height: 100px;">
-            <a class="navbar-brand text-light">COEP Event Management</a>
-            <form class="form-inline">
-                <a href="/eventinfo" class="btn btn-outline-primary my-2 my-sm-0 bg-primary text-dark" type="submit">Events Info</a>
-                <a href="/admin" class="btn btn-outline-primary my-2 my-sm-0 bg-primary text-dark" type="submit">Admin Login</a>
-            </form>
-        </nav>
-    </div>  
-    <div style="margin-left: 300px;">
-        <img src="../static/images/login.jpg" alt="" style="width:80%">
+      <nav
+        class="navbar navbar-light bg-dark justify-content-between text-light px-5"
+        style="height: 100px"
+      >
+        <a class="navbar-brand text-light">COEP Event Management</a>
+        <form class="form-inline">
+          <a
+            href="/eventinfo"
+            class="btn btn-outline-primary my-2 my-sm-0 bg-primary text-dark"
+            type="submit"
+            >Events Info</a
+          >
+          <a
+            href="/admin"
+            class="btn btn-outline-primary my-2 my-sm-0 bg-primary text-dark"
+            type="submit"
+            >Admin Login</a
+          >
+        </form>
+      </nav>
+    </div>
+    <div style="margin-left: 300px">
+      <img src="../static/images/login.jpg" alt="" style="width: 80%" />
     </div>
     <div class="row bg-dark text-light">
       <div class="px-5 bg-dark">
-        <form method="post" style="margin-top:50px;">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="h4" for="inlineFormCustomSelect">First Name</label>
-                        <input name="FirstName" type="first" class="form-control border border-dark" id="firstname" aria-describedby="fistName" placeholder="Enter First Name">
-                        <br/>
-                        <label class="h4" for="inlineFormCustomSelect">Last Name</label>
-                        <input name="LastName" type="last" class="form-control border border-dark" id="lastname" aria-describedby="LastName" placeholder="Enter Last Name">
-                    </div>
-                    <br/>
-                    <div class="form-group">
-                      <label class="h4" for="inlineFormCustomSelect">Mobile Number</label>
-                        <input name="MobileNumber" type="tel" class="form-control border border-dark" id="mobileNumber" placeholder="Mobile Number">
-                    </div>
-                    <br/>
-                </div>
-                <div class="col-md-2">
-
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="h4" for="inlineFormCustomSelect">Email-id</label>
-                        <input name="Email" type="email" class="form-control border border-dark" id="email" placeholder="Email-id">
-                    </div>
-                    <br/>
-                    <div class="form-group rounded">
-                        <label class="h4" for="inlineFormCustomSelect">Branch</label>
-                        <select name="Branch" class="form-control w-100 border border-dark" id="inlineFormCustomSelect">
-                            <option selected>Select Branch</option>
-                            {% for branch in branchs %}
-                                <option value={{branch[0]}}>{{branch[1]}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <br/>
-                    <div class="form-group rounded">
-                        <label class="h4" for="inlineFormCustomSelect">Event</label>
-                        <select name="Event" class="form-control w-100 border border-dark">
-                            <option selected>Select Event</option>
-                            {% for event in events %}
-                                <option value={{event[0]}}>{{event[1]}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <br/>
-                </div>
+        <form method="post" style="margin-top: 50px">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="h4" for="inlineFormCustomSelect"
+                  >First Name</label
+                >
+                <input
+                  name="FirstName"
+                  type="first"
+                  class="form-control border border-dark"
+                  id="firstname"
+                  aria-describedby="fistName"
+                  placeholder="Enter First Name"
+                />
+                <br />
+                <label class="h4" for="inlineFormCustomSelect">Last Name</label>
+                <input
+                  name="LastName"
+                  type="last"
+                  class="form-control border border-dark"
+                  id="lastname"
+                  aria-describedby="LastName"
+                  placeholder="Enter Last Name"
+                />
+              </div>
+              <br />
+              <div class="form-group">
+                <label class="h4" for="inlineFormCustomSelect"
+                  >Mobile Number</label
+                >
+                <input
+                  name="MobileNumber"
+                  type="tel"
+                  class="form-control border border-dark"
+                  id="mobileNumber"
+                  placeholder="Mobile Number"
+                />
+              </div>
+              <br />
             </div>
-            <div class="row">
-                <div class="col-md-5">
-                </div>
-                {% for error in errors %}
-                    <h5 class="col-md-2 text-warning">{{error}}</h5>
-                {% endfor %}
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="h4" for="inlineFormCustomSelect">Email-id</label>
+                <input
+                  name="Email"
+                  type="email"
+                  class="form-control border border-dark"
+                  id="email"
+                  placeholder="Email-id"
+                />
+              </div>
+              <br />
+              <div class="form-group rounded">
+                <label class="h4" for="inlineFormCustomSelect">Branch</label>
+                <select
+                  name="Branch"
+                  class="form-control w-100 border border-dark"
+                  id="inlineFormCustomSelect"
+                >
+                  <option selected>Select Branch</option>
+                  {% for branch in branchs %}
+                  <option value="{{branch[0]}}">{{branch[1]}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <br />
+              <div class="form-group rounded">
+                <label class="h4" for="inlineFormCustomSelect">Event</label>
+                <select
+                  name="Event"
+                  class="form-control w-100 border border-dark"
+                >
+                  <option selected>Select Event</option>
+                  {% for event in events %}
+                  <option value="{{event[0]}}">{{event[1]}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <br />
             </div>
-            <div class="row" style="margin-top: 20px;margin-bottom: 50px;">
-                <div class="col-md-5">
-                </div>
-                <button type="submit" class="btn btn-primary border border-dark col-md-2">Submit</button>
-            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5"></div>
+            {% for error in errors %}
+            <h5 class="col-md-2 text-warning">{{error}}</h5>
+            {% endfor %}
+          </div>
+          <div class="row" style="margin-top: 20px; margin-bottom: 50px">
+            <div class="col-md-5"></div>
+            <button
+              type="submit"
+              class="btn btn-primary border border-dark col-md-2"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </div>
-</body>
+  </body>
 </html>
