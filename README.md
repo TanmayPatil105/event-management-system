@@ -18,7 +18,7 @@ Open MySQL in terminal
 ```
 
 ```
-Copy contents of ./database/events.sql and execute them
+Create the database by copying the contents of ./database/events.sql and executing them
 ```
 
 ```
