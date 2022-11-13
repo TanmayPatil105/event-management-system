@@ -21,22 +21,48 @@
     </style>
 </head>
 <body style="background-color: #f1faee;">
-    <div style="background-color:#004e89";class="mt-2 mb-3"><h1 style="font-weight:bolder;left:37%;position:relative;font-family:'Copperplate';color:#ccdbfd">⟹ Event Administrator ⟸</h1></div>
+    <div style="background-color:#004e89;height: 70px;align-items: center; display: flex; justify-content: center;" class="text-light">
+        <h1>Event Administrator</h1>
+    </div>
     <div style="padding-top: 50px; margin: 30px;">
+        <div style=" align-items: center; display: flex; justify-content: center;">
+            <h1>Event Types</h1>
+        </div>
         <table class="table">
             <thead class="thead-dark bg-dark text-light">
                 <tr>
-                    <th scope="col">Event ID</th>
+                    <th scope="col">Type ID</th>
                     <th scope="col">Event Type</th>
                     <th scope="col">Total participants</th>
                 </tr>
             </thead>
             <tbody>
-                {% for event in events %}
+                {% for event in eventTypes %}
                 <tr>
                     <th scope="row">{{event[0]}}</th>
                     <td>{{event[1]}}</td>
                     <td>{{event[2]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div style=" align-items: center; display: flex; justify-content: center;">
+            <h1>Events</h1>
+        </div>
+        <table class="table">
+            <thead class="thead-dark bg-dark text-light">
+                <tr>
+                    <th scope="col">Event ID</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Total participants</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for eve in events %}
+                <tr>
+                    <th scope="row">{{eve[0]}}</th>
+                    <td>{{eve[1]}}</td>
+                    <td>{{eve[2]}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -54,7 +80,7 @@
                     <label class="h4" for="inlineFormCustomSelect">Event</label>
                     <select name="EventId" class="form-control w-100 border border-dark">
                         <option selected>Select Event to Delete</option>
-                        {% for event in devents %}
+                        {% for event in events %}
                         <option value="{{event[0]}}">{{event[1]}}</option>
                         {% endfor %}
                     </select>
@@ -97,6 +123,13 @@
                                                     {% endfor %}
                                                 </select>
                                             </div>
+                                            <br/>
+                                            <div class="form-group">
+                                                <label class="h4" for="inlineFormCustomSelect">Registration Fee</label>
+                                                <input name="Fee" type="number" class="form-control border border-dark"
+                                                    id="Fee" aria-describedby="Fee" placeholder="Enter registration fee">
+                                                <br />
+                                            </div>
                                         </div>
                                         <br />
                                     </div>
@@ -119,16 +152,11 @@
                                                     {% endfor %}
                                                 </select>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="h4" for="inlineFormCustomSelect">Registration Fee</label>
-                                            <input name="Fee" type="number" class="form-control border border-dark"
-                                                id="Fee" aria-describedby="Fee" placeholder="Enter registration fee">
-                                            <br />
+                                            <br/>
+                                            <label class="h4" for="inlineFormCustomSelect">Enter date(YYYY-MM-DD)</label>
+                                            <input name="Date" type="text" class="form-control border border-dark"
+                                                id="date" aria-describedby="date"
+                                                placeholder="Enter Date">
                                         </div>
                                     </div>
                                     <br>

@@ -67,13 +67,14 @@ def renderAdmin():
 
 @app.route('/eventType',methods=['GET','POST'])
 def getEvents():
-    res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;") # Query to be modified
+    eventTypes = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;") # Query to be modified
+
+    events = runQuery("SELECT event_id,event_title,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.event_id ) AS count FROM events AS E;")
 
     types = runQuery("SELECT * FROM event_type;")
 
     location = runQuery("SELECT * FROM location")
 
-    events = runQuery("SELECT * FROM events;")
 
     if request.method == "POST":
         try:
@@ -83,13 +84,14 @@ def getEvents():
             participants = request.form["maxP"]
             Type=request.form["EventType"]
             Location = request.form["EventLocation"]
-            runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",{},{},{},{});".format(Name,fee,participants,Type, Location))
+            Date = request.form['Date']
+            runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id,date) VALUES(\"{}\",{},{},{},{},\'{}\');".format(Name,fee,participants,Type, Location,Date))
 
         except:
             EventId=request.form["EventId"]
             runQuery("DELETE FROM events WHERE event_id={}".format(EventId))
 
-    return render_template('events.html',devents=events,events = res,types = types,locations = location)
+    return render_template('events.html',events = events,eventTypes = eventTypes,types = types,locations = location) 
 
 
 @app.route('/eventinfo')
