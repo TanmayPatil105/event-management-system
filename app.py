@@ -52,14 +52,15 @@ def renderAdmin():
 
         cred = runQuery("SELECT * FROM admin")
 
-        print(cred)
-
         if UN==cred[0][0] and PS==cred[0][1]:
             return redirect('/eventType')
+
         elif UN!='Admin':
             return render_template('admin.html',errors=["Wrong Username"])
+
         else:
             return render_template('admin.html',errors=["Wrong Password"])
+
     return render_template('admin.html')    
 
 
@@ -67,24 +68,27 @@ def renderAdmin():
 @app.route('/eventType',methods=['GET','POST'])
 def getEvents():
     res = runQuery("SELECT *,(SELECT COUNT(*) FROM participants AS P WHERE P.event_id = E.type_id ) AS count FROM event_type AS E;") # Query to be modified
+
     types = runQuery("SELECT * FROM event_type;")
+
     location = runQuery("SELECT * FROM location")
+
     if request.method == "POST":
         Name = request.form["newEvent"]
         fee=request.form["Fee"]
         participants = request.form["maxP"]
         Type=request.form["EventType"]
         Location = request.form["EventLocation"]
+
         runQuery("INSERT INTO events(event_title,event_price,participants,type_id,location_id) VALUES(\"{}\",{},{},{},{});".format(Name,fee,participants,Type, Location))
+
     return render_template('events.html',events = res,types = types,locations = location)
 
 @app.route('/eventinfo')
 def rendereventinfo():
     events=runQuery("select * from events left join event_type using(type_id) left join location using(location_id);")
-    if events == []:
-        return '<h2>Sorry, We have no upcoming events &#128546;<h2>'
-    else:
-        return render_template('events_info.html',events = events)
+
+    return render_template('events_info.html',events = events)
 
 
 def runQuery(query):
@@ -115,7 +119,6 @@ def runQuery(query):
     db.close()
 
     print("Couldn't connect to MySQL")
-    #Couldn't connect to MySQL
     return None
 
 
