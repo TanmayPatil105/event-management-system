@@ -108,7 +108,7 @@ def renderParticipants():
     if request.method == "POST":
         Event = request.form['Event']
 
-        participants = runQuery("SELECT p_id,fullname FROM participants WHERE event_id={}".format(Event))
+        participants = runQuery("SELECT p_id,fullname,mobile,email FROM participants WHERE event_id={}".format(Event))
         return render_template('participants.html',events = events,participants=participants)
 
     return render_template('participants.html',events = events)
