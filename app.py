@@ -102,12 +102,9 @@ def rendereventinfo():
 
 
 def runQuery(query):
+
     try:
-        db = mysql.connector.connect(
-            host='localhost',
-            database='event_mgmt',
-            user='root',
-            password='password')
+        db = mysql.connector.connect( host='localhost',database='event_mgmt',user='root',password='password')
 
         if db.is_connected():
             print("Connected to MySQL, running query: ", query)
@@ -133,4 +130,4 @@ def runQuery(query):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0') 
+    app.run() 
