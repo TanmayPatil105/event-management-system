@@ -18,7 +18,8 @@ ALTER TABLE `events`
 
 
 ALTER TABLE `events`
-  ADD FOREIGN KEY (`type_id`) REFERENCES event_type(`type_id`);
+  ADD FOREIGN KEY (`type_id`) REFERENCES event_type(`type_id`)
+  ON DELETE CASCADE;
 --
 ALTER TABLE `events`
   ADD FOREIGN KEY (`location_id`) REFERENCES location(`location_id`);
