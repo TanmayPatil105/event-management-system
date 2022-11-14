@@ -100,7 +100,7 @@ def rendereventinfo():
 
     return render_template('events_info.html',events = events)
 
-@app.route('/participants')
+@app.route('/participants',methods=['GET','POST'])
 def renderParticipants():
     
     events = runQuery("SELECT * FROM events;")
