@@ -10,7 +10,7 @@ CREATE TABLE `events` (
   `type_id` int(10) NOT NULL,
   `location_id` int(10) NOT NULL,
   `date` DATE NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 
 ALTER TABLE `events`
@@ -47,7 +47,7 @@ INSERT INTO `events` (`event_id`, `event_title`, `event_price`, `participants`, 
 CREATE TABLE `event_type` (
   `type_id` int(10) NOT NULL,
   `type_title` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 ALTER TABLE `event_type`
   ADD PRIMARY KEY (`type_id`);
@@ -73,7 +73,7 @@ CREATE TABLE `participants` (
   `mobile` char(10) NOT NULL,
   `college` varchar(300) NOT NULL,
   `branch_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 ALTER TABLE `participants`
   ADD PRIMARY KEY (`p_id`);
