@@ -100,6 +100,18 @@ def rendereventinfo():
 
     return render_template('events_info.html',events = events)
 
+@app.route('/participants')
+def renderParticipants():
+    
+    events = runQuery("SELECT * FROM events;")
+
+    if request.method == "POST":
+        Event = request.form['Event']
+
+        participants = runQuery("SELECT p_id,fullname FROM participants WHERE event_id={}".format(Event))
+        return render_template('participants.html',events = events,participants=participants)
+
+    return render_template('participants.html',events = events)
 
 def runQuery(query):
 
