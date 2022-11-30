@@ -133,7 +133,7 @@ def runQuery(query):
 
     except Exception as e:
         print(e)
-        return e
+        return []
 
     db.close()
 

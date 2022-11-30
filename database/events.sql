@@ -1,6 +1,74 @@
-CREATE DATABASE event_mgmt;
 USE event_mgmt;
 
+
+-- --------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `event_type` (
+  `type_id` int(10) NOT NULL,
+  `type_title` text NOT NULL
+);
+
+ALTER TABLE `event_type`
+  ADD PRIMARY KEY (`type_id`);
+
+ALTER TABLE `event_type`
+  MODIFY `type_id` int(10) NOT NULL AUTO_INCREMENT;
+
+INSERT INTO `event_type` (`type_id`, `type_title`) VALUES
+(1, 'Technical'),
+(2, 'Gaming'),
+(3, 'Cultural'),
+(4, 'Sports'),
+(5, 'Trivia');
+
+-- -----------------------------------------------------------------------------------------------------
+
+CREATE TABLE `location`(
+  `location_id` int(10) NOT NULL,
+  `location_name` varchar(100) NOT NULL
+);
+
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`location_id`);
+
+ALTER TABLE `location`
+  MODIFY `location_id` int(10) NOT NULL AUTO_INCREMENT;
+
+
+INSERT INTO `location` (`location_name`) VALUES
+('Main Auditorium'),
+('Mini Auditorium'),
+('COEP Ground'),
+('Academic Complex'),
+('Cognizant Lab');
+
+-- ------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE `branch`(
+  `branch_id` int(10) NOT NULL,
+  `branch_name` varchar(30) NOT NULL
+);
+
+
+ALTER TABLE `branch`
+  ADD PRIMARY KEY (`branch_id`);
+
+ALTER TABLE `branch`
+  MODIFY `branch_id` int(10) NOT NULL AUTO_INCREMENT;
+
+
+INSERT INTO `branch` (`branch_name`) VALUES
+('Civil'),
+('Computer'),
+('Electrical'),
+('E&TC'),
+('Instrumentation'),
+('Mechanical'),
+('Metallurgy'),
+('Production');
+
+-- ----------------------------------------------------------------------------------------------------------
 
 CREATE TABLE `events` (
   `event_id` int(100) NOT NULL,
@@ -42,26 +110,6 @@ INSERT INTO `events` (`event_id`, `event_title`, `event_price`, `participants`, 
 (6, 'Spandan', 50, 1, 3,1,'2022-11-03');
 
 
--- --------------------------------------------------------------------------------------------------------
-
-CREATE TABLE `event_type` (
-  `type_id` int(10) NOT NULL,
-  `type_title` text NOT NULL
-);
-
-ALTER TABLE `event_type`
-  ADD PRIMARY KEY (`type_id`);
-
-ALTER TABLE `event_type`
-  MODIFY `type_id` int(10) NOT NULL AUTO_INCREMENT;
-
-INSERT INTO `event_type` (`type_id`, `type_title`) VALUES
-(1, 'Technical'),
-(2, 'Gaming'),
-(3, 'Cultural'),
-(4, 'Sports'),
-(5, 'Trivia');
-
 -- ---------------------------------------------------------------------------------------
 
 
@@ -93,51 +141,8 @@ ALTER TABLE `participants`
 
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE `branch`(
-  `branch_id` int(10) NOT NULL,
-  `branch_name` varchar(30) NOT NULL
-);
 
 
-ALTER TABLE `branch`
-  ADD PRIMARY KEY (`branch_id`);
-
-ALTER TABLE `branch`
-  MODIFY `branch_id` int(10) NOT NULL AUTO_INCREMENT;
-
-
-INSERT INTO `branch` (`branch_name`) VALUES
-('Civil'),
-('Computer'),
-('Electrical'),
-('E&TC'),
-('Instrumentation'),
-('Mechanical'),
-('Metallurgy'),
-('Production');
-
--- ----------------------------------------------------------------------------------------------------------
-
-CREATE TABLE `location`(
-  `location_id` int(10) NOT NULL,
-  `location_name` varchar(100) NOT NULL
-);
-
-ALTER TABLE `location`
-  ADD PRIMARY KEY (`location_id`);
-
-ALTER TABLE `location`
-  MODIFY `location_id` int(10) NOT NULL AUTO_INCREMENT;
-
-
-INSERT INTO `location` (`location_name`) VALUES
-('Main Auditorium'),
-('Mini Auditorium'),
-('COEP Ground'),
-('Academic Complex'),
-('Cognizant Lab');
-
--- ------------------------------------------------------------------------------------------------------------
 
 CREATE TABLE `admin`(
   `username` varchar(100) NOT NULL,
