@@ -22,52 +22,54 @@
       crossorigin="anonymous"
     ></script>
 </head>
-<body>
-    <h1>Event Participants information</h1>
-    <div class="col">
-      <form method="post">
-      <div class="form-group rounded">
-            <label class="h4" for="inlineFormCustomSelect">Event</label>
-            <select
-              name="Event"
-              class="form-control w-100 border border-dark"
-            >
-              <option selected>Select Event</option>
-              {% for event in events %}
-              <option value="{{event[0]}}">{{event[1]}}</option>
-              {% endfor %}
-            </select>
-            <div class="row" style="margin-top: 20px; margin-bottom: 50px">
-              <div class="col-md-5"></div>
-              <button
-                type="submit"
-                class="btn btn-primary border border-dark col-md-2"
-              >
-                Submit
-              </button>
-            </div>          
-        </div>   
-      </form>
+<body style="background-color:#a9def9 ">
+    <h1 style="text-align:center;margin-top: 3%;margin-bottom: 4%;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-weight: bolder;color:#003049;">Event Participants information</h1>
+    <div style="margin:30px;">
+      <div class="bg-dark text-dark "
+            style="align-items:center; display: flex; justify-content: center;background-color: #f1faee;height:20%;border-radius:10px;"
+            id="delevent">
+            <form method="post" style="width:45vw;min-height:20vw;">
+                <div class="form-group rounded" style="text-align:center;">
+                    <label style="font-weight: bolder;margin-top:4%;margin-bottom:5%;;font-style:Trebuchet MS;color:antiquewhite" class="h2"
+                        for="inlineFormCustomSelect">Get  Event Information </label>
+                    <select name="Event" class="form-control w-100 border border-dark">
+                        <option selected>Select Event</option>
+                        {% for event in events %}
+                        <option value="{{event[0]}}">{{event[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div style="margin-top:3%;align-items: center;display:flex;justify-content:center;">
+                    <button style="width:20%;margin-top:2%;margin-bottom:5%;align-items: center;display: flex; justify-content: center;font-weight:bolder;"
+                        type="submit" class="btn btn-primary border border-dark">
+                        Extract 
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <table class="table">
-      <thead class="thead-dark bg-dark text-light">
-          <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Email</th>
-          </tr>
-      </thead>
-      <tbody>
-          {% for par in participants %}
-          <tr>
-              <th scope="row">{{par[0]}}</th>
-              <td>{{par[1]}}</td>
-              <td>{{par[2]}}</td>
-              <td>{{par[3]}}</td>
-          </tr>
-          {% endfor %}
-      </tbody>
-  </table>
+
+    <div style="padding-top: 50px; margin: 30px;">
+      <table class="table">
+        <thead class="thead-dark bg-dark text-light">
+            <tr>
+                <th scope="col"> Participant Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for par in participants %}
+            <tr>
+                <th scope="row">{{par[0]}}</th>
+                <td>{{par[1]}}</td>
+                <td>{{par[2]}}</td>
+                <td>{{par[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
 </body>
 </html>
