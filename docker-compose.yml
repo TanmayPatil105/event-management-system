@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  application:
+      build: .
+      container_name : flask_app
+      ports:
+        - '5000:5000'
+      volumes:
+        - .:/app 
+      depends_on:
+        - db
+
+  db:
+    build: ./database/
+    restart: always
+    environment:
+      MYSQL_DATABASE: event_mgmt
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '4306:3306' 
