@@ -150,4 +150,7 @@ CREATE TABLE `admin`(
 );
 
 INSERT INTO `admin` VALUES
-('Admin','password');
+('Admin1','password1'),
+('Admin2','password2');
+
+----------------------------------------------------------------------------------
